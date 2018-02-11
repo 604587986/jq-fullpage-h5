@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+  <title></title>
+
+  <!-- 载入所有jquery资源 -->
+  <script type="text/javascript" src="js/lib/jquery.js"></script>
+  <script type="text/javascript" src="js/lib/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="js/lib/jquery.fullPage.js"></script>
+  <!-- 载入H5对象 -->
+  <script type="text/javascript" src="js/H5.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/H5.css">
+  <script>
+    var componentList = ['Base', 'Bar', 'Pie', 'Point', 'Polyline', 'Radar'];
+    for (i in componentList) {
+      document.write('<script type="text/javascript" src="js/H5Component' + componentList[i] + '.js"><\/script>');
+      document.write('<link rel="stylesheet" type="text/css" href="css/H5Component' + componentList[i] + '.css">');
+    }
+  </script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .h5-page-home {
+      background: url(./imgs/face_bg.png)!important;
+      background-size: 100% 100%;
+    }
+    
+    .h5-page {
+      background: url(./imgs/page_bg.png);
+      background-size: 100% 100%;
+    }
+    
+    .h5-component-name-slogan {
+      animation: shake 2s infinite
+    }
+    
+    @keyframes shake {
+      0% {
+        transform: rotate(0deg)
+      }
+      5% {
+        transform: rotate(3deg)
+      }
+      10% {
+        transform: rotate(-4deg)
+      }
+      15% {
+        transform: rotate(3deg)
+      }
+      20% {
+        transform: rotate(-2deg)
+      }
+      25% {
+        transform: rotate(1deg)
+      }
+      30% {
+        transform: rotate(-1deg)
+      }
+      70% {
+        transform: rotate(0deg)
+      }
+      100% {
+        transform: rotate(0deg)
+      }
+    }
+    
+    .h5-component-name-caption {
+      text-align: center;
+      background: url(imgs/page_caption_bg.png) no-repeat;
+      background-size: 100%;
+      width: 283px;
+      height: 160px;
+      line-height: 140px;
+      font-size: 20px;
+      color: #fff;
+    }
+    
+    .h5-component-point-load .point:first-child:after {
+      content: ' ';
+      text-indent: -999px;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: inherit;
+      left: 50%;
+      top: 50%;
+      margin-left: -50%;
+      margin-top: -50%;
+      border-radius: 50%;
+      z-index: 0;
+      opacity: .5;
+      animation: breath 3s infinite ease-in-out .5s;
+    }
+    
+    @keyframes breath {
+      0% {
+        transform: scale(.5);
+        opacity: .9
+      }
+      95% {
+        transform: scale(1.5);
+        opacity: 0
+      }
+      100% {
+        transform: scale(.9);
+        opacity: 0
+      }
+    }
+    
+    .h5-component-name-back {
+      animation: float 2s infinite
+    }
+    
+    @keyframes float {
+      0% {
+        top: 30px
+      }
+      25% {
+        top: 40px
+      }
+      50% {
+        top: 30px
+      }
+      75% {
+        top: 40px
+      }
+      100% {
+        top: 30px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    $(function() {
+      var h5 = new H5();
+      h5.addPage('home')
+        .addComponent('logo', {
+          type: 'base',
+          center: true,
+          width: 395,
+          height: 129,
+          bg: 'imgs/face_logo.png',
+          css: {
+            top: '100px',
+            opacity: 1
+          },
+          animateIn: {
+            top: '100px',
+            opacity: 1
+          },
+          animateOut: {
+            top: 0,
+            opacity: 0
+          },
+          delay: 1000
+        })
+        .addComponent('slogan', {
+          center: true,
+          width: 365,
+          height: 99,
+          bg: 'imgs/face_slogan.png',
+          css: {
+            top: '180px'
+          },
+          animateIn: {
+            left: '50%',
+            opacity: 1
+          },
+          animateOut: {
+            left: 0,
+            opacity: 0
+          },
+          delay: 1500
+        })
+        .addComponent('img-left', {
+          width: 370,
+          height: 493,
+          bg: 'imgs/face_img_left.png',
+          css: {
+            left: 0,
+            bottom: 0
+          },
+          animateIn: {
+            left: 0,
+            bottom: 0,
+            opacity: 1
+          },
+          animateOut: {
+            left: -50,
+            bottom: -50,
+            opacity: 0
+          }
+        })
+        .addComponent('img-right', {
+          width: 276,
+          height: 449,
+          bg: 'imgs/face_img_right.png',
+          css: {
+            right: 0,
+            bottom: 0
+          },
+          animateIn: {
+            right: 0,
+            bottom: 0,
+            opacity: 1
+          },
+          animateOut: {
+            right: -50,
+            bottom: -50,
+            opacity: 0
+          },
+          delay: 500
+        })
+        .addPage('1')
+        .addComponent('caption', {
+          text: '核心理念'
+        })
+        .addComponent('title', {
+          text: '慕课网=只学有用的',
+          width: 480,
+          height: 60,
+          center: true,
+          css: {
+            fontSize: '26px',
+            textAlign: 'center',
+            top: 150,
+            color: '#ff4343'
+          }
+        })
+        .addComponent('article', {
+          center: true,
+          width: 521,
+          height: 335,
+          bg: 'imgs/description_bg.gif',
+          css: {
+            top: 235,
+            textAlign: 'justify',
+            padding: '15px 10px 10px',
+            color: 'rgb(255, 255, 255)'
+          },
+          text: '2013年，IT教育网的诞生引领中国IT职业从教育进入新时代；高质量实战课程、全新教学模式、实时互动学习，以领先优势打造行业品牌；迄今为止，慕课网已成为中国规模最大、互动性最高的IT技能学习平台。'
+        })
+        .addComponent('img',{
+          center:true,
+          width:515,
+          height:305,
+          bg:'imgs/p1_people.png',
+          css:{
+            bottom:35
+          }
+        })
+        .addPage('2')
+        .addComponent('caption', {
+          text: '课程方向分布',
+        })
+        .addComponent('point', {
+          type: 'point',
+          center: true,
+          width: 300,
+          height: 300,
+          css: {
+            top: '50%',
+            marginTop: -75
+          },
+          data: [{
+            key: 'A项',
+            value: 0.4,
+            color: '#FF7575'
+          }, {
+            key: 'B项',
+            value: 0.2,
+            color: '#7DB0E8',
+            offsetX: '-30%',
+            offsetY: '-80%'
+          }, {
+            key: 'C项',
+            value: 0.1,
+            color: '#A0A6C9',
+            offsetX: 0,
+            offsetY: '120%'
+          }]
+        })
+        // .addPage('1')
+        // .addComponent('caption', {
+        //   text: '移动开发课程资源'
+        // })
+        // .addPage('1')
+        // .addComponent('caption', {
+        //   text: '前端开发课程资源'
+        // })
+        // .addPage('1')
+        // .addComponent('caption', {
+        //   text: '后端开发课程资源'
+        // })
+        // .addPage('1')
+        // .addComponent('caption', {
+        //   text: '报名人数过万课程'
+        // })
+        .addPage('end')
+        .addComponent('logo', {
+          type: 'base',
+          center: true,
+          width: 395,
+          height: 129,
+          bg: 'imgs/tail_logo.png',
+          css: {
+            top: '150px',
+            opacity: 1
+          }
+        })
+        .addComponent('slogan', {
+          center: true,
+          width: 314,
+          height: 46,
+          bg: 'imgs/tail_slogan.png',
+          css: {
+            top: '230px'
+          }
+        })
+        .addComponent('share', {
+          width: 128,
+          height: 120,
+          css: {
+            top: 0,
+            right: 0
+          },
+          bg: 'imgs/tail_share.png'
+        })
+        .addComponent('back', {
+          center: true,
+          width: 52,
+          height: 50,
+          bg: 'imgs/tail_back.png',
+          css: {
+            top: '20px',
+          },
+          click: function() {
+            $.fn.fullpage.moveTo(1);
+          }
+        })
+        .loader()
+
+    })
+  </script>
+</body>
+
+</html>

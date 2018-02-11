@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script type="text/javascript" src="../js/lib/jquery.js"></script>
+  <script type="text/javascript" src="../js/lib/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../js/lib/jquery.fullPage.js"></script>
+  <!-- h5对象 -->
+  <script type="text/javascript" src="../js/H5.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/H5.css">
+  <!-- base组件 -->
+  <script type="text/javascript" src="../js/H5ComponentBase.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/H5ComponentBase.css">
+  <!-- 点图组件 -->
+  <script type="text/javascript" src="../js/H5ComponentPoint.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/H5ComponentPoint.css">
+  <!-- 柱状图组件 -->
+  <script src="../js/H5ComponentBar.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentBar.css">
+  <!-- 折线图组件 -->
+  <script src="../js/H5ComponentPolyline.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentPolyline.css">
+  <!-- 雷达图组件 -->
+  <script src="../js/H5ComponentRadar.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentRadar.css">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var h5 = new H5();
+    h5.addPage('face').addComponent('first', {
+        type: 'point',
+        height: 300,
+        width: 300,
+        data: [{
+          key: 'A项',
+          value: 0.4,
+          color: 'green'
+        }, {
+          key: 'B项',
+          value: 0.2,
+          color: 'yellow',
+          offsetX: 0,
+          offsetY: '-120%'
+        }, {
+          key: 'C项',
+          value: 0.1,
+          color: 'red',
+          offsetX: 0,
+          offsetY: '120%'
+        }],
+        animateIn: {
+          opacity: '1'
+        },
+        animateOut: {
+          opacity: '0'
+        },
+        center: true,
+        css: {
+          top: '50%',
+          marginTop: '-75px',
+        }
+      })
+      .addPage('page-2').addComponent('second', {
+        type: 'bar',
+        width: 400,
+        data: [{
+          key: 'A项',
+          value: 0.6,
+          color: 'green'
+        }, {
+          key: 'B项',
+          value: 0.2,
+          // color: 'yellow'
+        }, {
+          key: 'C项',
+          value: 0.1,
+          color: 'red'
+        }, {
+          key: 'D项',
+          value: 0.1,
+          color: 'pink'
+        }],
+        css: {
+          top: '50%',
+          marginTop: '-100px'
+        },
+        center: true
+      }).addPage('page-3').addComponent('3', {
+        type: 'polyline',
+        width: 530,
+        height: 400,
+        data: [{
+          key: 'JS',
+          value: 0.4,
+          color: '#ff76776'
+        }, {
+          key: 'CSS3',
+          value: 0.1,
+          color: '#ff76776'
+        }, {
+          key: 'HTML5',
+          value: 0.2,
+          color: '#ff76776'
+        }, {
+          key: 'PHP',
+          value: 0.05,
+          color: '#ff76776'
+        }, {
+          key: 'JQUERY',
+          value: 0.35,
+          color: '#ff76776'
+        }],
+        center: true
+      }).addPage('page-4').addComponent('myComp', {
+        type: 'radar',
+        width: 400,
+        height: 400,
+        data: [{
+          key: 'JS',
+          value: 0.4,
+          color: '#ff76776'
+        }, {
+          key: 'CSS3',
+          value: 0.1,
+          color: '#ff76776'
+        }, {
+          key: 'HTML5',
+          value: 0.2,
+          color: '#ff76776'
+        }, {
+          key: 'PHP',
+          value: 0.05,
+          color: '#ff76776'
+        }, {
+          key: 'JQUERY',
+          value: 0.35,
+          color: '#ff76776'
+        }],
+        center: true
+      })
+      .loader();
+  </script>
+</body>
+
+</html>

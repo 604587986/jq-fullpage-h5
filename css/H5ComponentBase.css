@@ -1,0 +1,6 @@
+.h5-component{
+    position: absolute;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    /* transition: all 0.5s; */
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/lib/jquery.js"></script>
+  <script src="../js/H5ComponentBase.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentBase.css">
+
+  <script src="../js/H5ComponentPolyline.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentPolyline.css">
+</head>
+
+<body>
+  <script>
+    var h5 = new H5ComponentPolyline('myComp', {
+      type: 'polyline',
+      width: 530,
+      height: 400,
+      data: [{
+        key: 'JS',
+        value: 0.4,
+        color: '#ff76776'
+      }, {
+        key: 'CSS3',
+        value: 0.1,
+        color: '#ff76776'
+      }, {
+        key: 'HTML5',
+        value: 0.2,
+        color: '#ff76776'
+      }, {
+        key: 'PHP',
+        value: 0.05,
+        color: '#ff76776'
+      }, {
+        key: 'JQUERY',
+        value: 0.35,
+        color: '#ff76776'
+      }],
+      center: true
+    });
+    $('body').append(h5);
+
+    var leave = true;
+    $('body').click(function() {
+      leave = !leave;
+      $('.h5-component').trigger(leave ? 'onLeave' : 'onLoad')
+    })
+  </script>
+</body>
+
+</html>

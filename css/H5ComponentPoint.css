@@ -1,0 +1,42 @@
+.h5-component-point {}
+
+.h5-component-point .point {
+  border-radius: 50%;
+  position: absolute;
+  color: aliceblue;
+  z-index: 2;
+  opacity: .1;
+  transform: scale(.1)
+}
+
+.h5-component-point .point .key {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1em;
+  z-index: 2
+}
+
+.h5-component-point .point .value {
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: 0.1em;
+  z-index: 2
+}
+
+.h5-component-point-load .point {
+  opacity: 1;
+  transform: scale(1)
+}
+
+.h5-component-point-leave .point {
+  opacity: .1;
+  transform: scale(.1)
+}

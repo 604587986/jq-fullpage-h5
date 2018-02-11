@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/lib/jquery.js"></script>
+  <script src="../js/h5ComponentBase.js"></script>
+  <link rel="stylesheet" href="../css/h5ComponentBase.css">
+</head>
+
+<body>
+  <script>
+    var h5 = new H5ComponentBase('myComp',{
+      type: 'base',
+      height: 306,
+      width: 514,
+      bg: './p1_people.png',
+      css: {
+        left: '50px',
+        bottom: '38px'
+      },
+      animateIn: {
+        bottom: '150px',
+        opacity: '1'
+      },
+      animateOut: {
+        bottom: '38px',
+        opacity: '0'
+      },
+      center: true
+    });
+    $('body').append(h5)
+  </script>
+</body>
+
+</html>

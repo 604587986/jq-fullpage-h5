@@ -1,0 +1,65 @@
+.h5-component-bar {}
+
+.h5-component-bar .bar {
+  height: 15px;
+  font-size: 14px;
+  line-height: 15px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.h5-component-bar .bar .key {
+  width: 60px;
+  position: absolute;
+  left: -60px;
+  top: -60px;
+  color: #000;
+  text-align: center;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.h5-component-bar .bar .progress {
+  height: 15px;
+  margin-left: 5px;
+  float: left;
+  position: relative;
+}
+
+.h5-component-bar .bar .progress .bg {
+  background: #99c0ff;
+  width: 0;
+  height: 100%;
+  transition: width 1s;
+  border-radius: 5px;
+}
+
+.h5-component-bar .bar .value {
+  width: 30px;
+  float: left;
+  margin-left: 5px;
+  color: #99c0ff;
+  transition: all .4s;  
+  transition-delay: .6s;
+  opacity: 0;
+}
+.h5-component-bar-load .bar .progress .bg {
+  width: 100%;
+}
+.h5-component-bar-leave .bar .progress .bg {
+  width: 0;
+}
+.h5-component-bar-load .bar .value {
+  opacity: 1;
+}
+.h5-component-bar-leave .bar .value {
+  opacity: 0;
+}
+.h5-component-bar-load .bar .key {
+  opacity: 1;
+  top: 0
+}
+.h5-component-bar-leave .bar .key {
+  opacity: 0;
+  top: -60px;
+}
