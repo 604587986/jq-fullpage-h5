@@ -6,7 +6,7 @@
   color: aliceblue;
   z-index: 2;
   opacity: .1;
-  transform: scale(.1)
+  transform: scale(0)
 }
 
 .h5-component-point .point .key {
@@ -17,6 +17,9 @@
   left: 0;
   top: 50%;
   margin-top: -1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   z-index: 2
 }
 
@@ -32,11 +35,11 @@
 }
 
 .h5-component-point-load .point {
-  opacity: 1;
+  opacity: .8;
   transform: scale(1)
 }
 
 .h5-component-point-leave .point {
   opacity: .1;
-  transform: scale(.1)
+  transform: scale(0)
 }

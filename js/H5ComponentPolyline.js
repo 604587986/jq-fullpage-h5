@@ -70,7 +70,7 @@ var H5ComponentPolyline = function(name, cfg) {
     ctx.lineTo(w / step, h * (1 - cfg.data[0].value));
     ctx.fill()
       //填数据
-    ctx.fillStyle = '#000';
+    ctx.fillStyle = '#fff';
     $.each(cfg.data, function(index, item) {
       var x = w / step * (index + 1);
       var y = h * (1 - item.value * per);

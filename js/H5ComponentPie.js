@@ -34,11 +34,12 @@ var H5ComponentPie = function(name, cfg) {
   $(canvas).css('zIndex', 2);
   component.append(canvas);
 
-  var colors = ['#EF4136', '#FF7676', '#FFAD69', '#99C0FF', '#5DDBD8']; //  备用颜色
+  var colors = ['#EF4136', '#FF7676', '#FFAD69', '#99C0FF', '#5DDBD8','#18A15F']; //  备用颜色
 
   var sAngel = 1.5 * Math.PI; //  设置开始的角度在 12 点位置
   var eAngel = 0; //  结束角度
   var aAngel = Math.PI * 2; //  100%的圆结束的角度 2pi = 360
+  var sum = 0;
 
 
   var step = cfg.data.length;
@@ -58,19 +59,30 @@ var H5ComponentPie = function(name, cfg) {
     ctx.arc(r, r, r, sAngel, eAngel);
     ctx.fill();
     ctx.stroke();
-    sAngel =eAngel
+    sAngel = eAngel
 
     //  加入所有的项目文本以及百分比
 
     var text = $('<div class="text">');
     text.text(cfg.data[i].key);
     var per = $('<div class="per">');
-    per.text(cfg.data[i].value * 100 + '%');
-    text.append(per);    
-    var x = r + Math.sin(Math.PI/2-sAngel) * r;
-    var y = r + Math.cos(Math.PI/2-sAngel) * r;
-
-
+    per.text((cfg.data[i].value * 100).toFixed(1) + '%');
+    text.append(per);
+    var halfValue = item.value / 2;
+    var compare = sum + halfValue;
+    var customR = r + 30
+    if (compare > 0 && compare <= 0.5) {
+      var x = r + Math.sin(Math.PI * 2 * compare) * customR;
+    } else if(compare > 0.5 && compare <= 1){
+      var x = r + Math.sin(Math.PI * 2 * compare) * customR;
+    }
+    if (compare > 0.75 || compare <= 0.25) {
+      var y = r - Math.cos(Math.PI * 2 * compare) * customR;
+    } else {
+      var y = r - Math.cos(Math.PI * 2 * compare) * customR;
+    }
+    sum = sum + item.value;
+    
     if (x > w / 2) {
       text.css('left', x / 2);
     } else {

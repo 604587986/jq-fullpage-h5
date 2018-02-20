@@ -13,10 +13,13 @@
   position: absolute;
   left: -60px;
   top: -60px;
-  color: #000;
-  text-align: center;
+  color: #fff;
   opacity: 0;
   transition: all 1s;
+  box-sizing: border-box;
+  padding-left: 10px;
+  font-size: 12px;
+  transform: scale(.8)
 }
 
 .h5-component-bar .bar .progress {

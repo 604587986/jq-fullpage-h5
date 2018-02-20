@@ -11,9 +11,9 @@
 }
 
 .h5-component-pie .text{
+    color: #fff;
     position: absolute;
     z-index: 99;
-    text-align: center;
-    height: 24px;
-    transition:all 1s;
+    transition:opacity 1s;
+    transform: scale(.7)
 }

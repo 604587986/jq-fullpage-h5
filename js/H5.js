@@ -33,7 +33,12 @@ var H5 = function() {
       case 'radar':
         component = new H5ComponentRadar(name, cfg);
         break;
-      default:
+      case 'pie':
+        component = new H5ComponentPie(name, cfg);
+        break;
+      case 'bar-col':
+        component = new H5ComponentBar_col(name, cfg);
+        break;
     }
     page.append(component)
     return this;

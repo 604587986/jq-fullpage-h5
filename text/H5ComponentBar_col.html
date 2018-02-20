@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/lib/jquery.js"></script>
+  <script src="../js/H5ComponentBase.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentBase.css">
+
+  <script src="../js/H5ComponentBar_col.js"></script>
+  <link rel="stylesheet" href="../css/H5ComponentBar_col.css">
+  <style>
+    body{
+      margin: 0;
+      padding: 0;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    var h5 = new H5ComponentBar_col('myComp', {
+      type: 'bar-col',
+      width: 600,
+      height:300,
+      data: [{
+        key: 'A项',
+        value: 0.6,
+        color: 'green'
+      }, {
+        key: 'B项',
+        value: 0.2,
+        color: 'yellow'
+      }, {
+        key: 'C项',
+        value: 0.1,
+        color: 'red'
+      },
+       {
+        key: 'D项',
+        value: 0.1,
+        color: 'pink'
+      },
+       {
+        key: 'D项',
+        value: 0.1,
+        color: 'pink'
+      },
+       {
+        key: 'D项',
+        value: 0.1,
+        color: 'pink'
+      }
+    ],
+
+      center: true
+    });
+    $('body').append(h5);
+
+    var leave = true;
+    $('body').click(function() {
+      leave = !leave;
+      $('.h5-component').trigger(leave ? 'onLeave' : 'onLoad')
+    })
+  </script>
+</body>
+
+</html>
